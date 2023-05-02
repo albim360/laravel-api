@@ -19,6 +19,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         $deletedProjects = Project::onlyTrashed()->get();
+
         return view('projects.index', compact('projects', 'deletedProjects'));
     }
     
@@ -82,8 +83,8 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProjectRequest $request, Project $project)
-{
+    public function update(UpdateProjectRequest $request, Project $project) {
+        
     $validated = $request->validated();
 
     $projectData = [
